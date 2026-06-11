@@ -34,8 +34,8 @@ const Testimonials = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
   };
 
   return (
@@ -62,7 +62,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <motion.div 
             key={index}
-            className="bento-card testimonial-card"
+            className="glass-card testimonial-card"
             variants={itemVariants}
             whileHover={{ y: -4, boxShadow: 'var(--shadow-hover)' }}
           >

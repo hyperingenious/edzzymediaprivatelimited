@@ -7,7 +7,7 @@ const ContactCTA = () => {
   return (
     <section className="cta section-container" id="contact">
       <motion.div 
-        className="bento-card cta-card-light"
+        className="glass-card cta-card-light"
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}

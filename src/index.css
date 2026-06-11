@@ -1,34 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Color Palette - Premium Light Mode Bento Grid */
-  --bg-primary: #F5F5F7; /* Apple-style off-white background */
-  --bg-card: #FFFFFF;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --border-subtle: rgba(0, 0, 0, 0.05);
-  --border-card: rgba(0, 0, 0, 0.08);
+  /* Premium Glassmorphism Color Palette */
+  --bg-primary: #F8FAFC; /* Slate 50 - Ultra clean base */
+  --bg-glass: rgba(255, 255, 255, 0.7); /* Frosted glass */
+  --bg-glass-hover: rgba(255, 255, 255, 0.85);
   
-  --text-primary: #0F172A;
-  --text-secondary: #64748B;
+  --border-glass: rgba(255, 255, 255, 0.5);
+  --border-subtle: rgba(15, 23, 42, 0.05); /* Very faint dark line */
+  
+  --text-primary: #0F172A; /* Slate 900 - Intense contrast */
+  --text-secondary: #475569; /* Slate 600 - High legibility muted */
   --text-muted: #94A3B8;
   
-  /* Brand Accents */
-  --accent-primary: #2563EB; /* Professional Indigo/Blue */
-  --accent-secondary: #3B82F6;
-  --accent-light: #EFF6FF;
+  /* Brand Accents - Rich Cerulean */
+  --accent-primary: #0369A1; 
+  --accent-secondary: #0284C7;
+  --accent-light: #E0F2FE;
 
   /* Typography */
   --font-main: 'Plus Jakarta Sans', sans-serif;
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Premium Transitions (Apple-like easing) */
+  --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  /* Layered Shadows for Depth */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  --shadow-glass-hover: 0 12px 48px 0 rgba(31, 38, 135, 0.08);
 }
 
 * {
@@ -44,6 +45,13 @@ html {
 body {
   font-family: var(--font-main);
   background-color: var(--bg-primary);
+  /* Abstract subtle mesh gradient background */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(202,100%,94%,1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210,100%,98%,1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(202,100%,94%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(210,100%,98%,1) 0px, transparent 50%);
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -53,30 +61,37 @@ body {
 
 /* Typography Utilities */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.03em; /* Tighter tracking for premium feel */
+}
+
+p {
+  line-height: 1.6;
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, #334155 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
-/* UI Elements */
-.bento-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
+/* UI Elements - Glassmorphism Architecture */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
   border-radius: 24px;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-glass);
   transition: var(--transition-smooth);
 }
 
-.bento-card:hover {
+.glass-card:hover {
+  background: var(--bg-glass-hover);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-glass-hover);
 }
 
 .btn-primary {
@@ -95,14 +110,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   background: #1e293b;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .btn-secondary {
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
   color: var(--text-primary);
-  border: 1px solid var(--border-card);
+  border: 1px solid var(--border-glass);
   padding: 14px 32px;
   border-radius: 100px;
   font-family: var(--font-main);
@@ -114,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 /* Base Layout Classes */
@@ -125,9 +140,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4vw, 4rem);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: var(--text-primary);
 }
 
@@ -137,7 +152,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.15rem;
   max-width: 600px;
   margin: 0 auto 64px auto;
-  line-height: 1.6;
 }
 
 /* Utilities */
@@ -147,3 +161,8 @@ h1, h2, h3, h4, h5, h6 {
 .gap-2 { gap: 8px; }
 .mr-2 { margin-right: 8px; }
 .mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+.mb-16 { margin-bottom: 64px; }
+.text-center { text-align: center; }
+.text-blue { color: var(--accent-primary); }

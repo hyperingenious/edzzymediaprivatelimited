@@ -34,7 +34,7 @@ const Services = () => {
 
       <div className="bento-grid">
         <motion.div 
-          className="bento-card bento-large group"
+          className="glass-card bento-large group"
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
@@ -56,7 +56,7 @@ const Services = () => {
         </motion.div>
 
         <motion.div 
-          className="bento-card bento-small"
+          className="glass-card bento-small"
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
