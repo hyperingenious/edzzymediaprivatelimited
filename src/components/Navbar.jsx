@@ -34,6 +34,7 @@ const Navbar = () => {
           <a href="#services" className="nav-link">Services</a>
           <a href="#process" className="nav-link">Process</a>
           <a href="#portfolio" className="nav-link">Portfolio</a>
+          <a href="#pricing" className="nav-link">Pricing</a>
         </div>
 
         <div className="nav-actions">
