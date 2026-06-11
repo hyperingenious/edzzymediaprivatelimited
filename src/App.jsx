@@ -7,10 +7,12 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import ContactCTA from './components/ContactCTA';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   return (
     <>
+      <ParticleBackground />
       <Navbar />
       <Hero />
       <Services />

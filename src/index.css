@@ -13,10 +13,10 @@
   --text-secondary: #475569; /* Slate 600 - High legibility muted */
   --text-muted: #94A3B8;
   
-  /* Brand Accents - Rich Cerulean */
-  --accent-primary: #0369A1; 
-  --accent-secondary: #0284C7;
-  --accent-light: #E0F2FE;
+  /* Brand Accents - Vibrant Logo Colors */
+  --accent-primary: #FF65C5; /* Vibrant Pink */
+  --accent-secondary: #CB6CE7; /* Vibrant Purple */
+  --accent-light: #FCE7F3; /* Pink 100 for subtle accents */
 
   /* Typography */
   --font-main: 'Plus Jakarta Sans', sans-serif;

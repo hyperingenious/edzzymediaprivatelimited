@@ -5,21 +5,39 @@ import './Testimonials.css';
 
 const testimonials = [
   {
-    quote: "Edzzy operates like an in-house engineering team. We handed them a complex SaaS build that was bottlenecking our agency, and they delivered it fully white-labeled in half our projected timeline. Our profit margins on that project were incredible.",
-    name: "Sarah Jenkins",
+    quote: "Edzzy operates like an in-house engineering team. We handed them a complex SaaS build that was bottlenecking our agency, and they delivered it fully white-labeled in half our projected timeline.",
+    name: "Priya Sharma",
     role: "Founder, GrowthOps Digital",
     rating: 5
   },
   {
-    quote: "The ability to scale our web development offering without hiring full-time developers has transformed our business. We now confidently pitch bulk website packages knowing Edzzy can handle the execution flawlessly in the background.",
-    name: "Marcus Thorne",
+    quote: "The ability to scale our web development offering without hiring full-time developers has transformed our business. We now confidently pitch bulk packages knowing Edzzy can handle the execution flawlessly.",
+    name: "Arjun Patel",
     role: "Managing Director, Elevate Marketing",
     rating: 5
   },
   {
-    quote: "Their technical SEO knowledge is unmatched. We outsourced a major client's architectural overhaul to them, and the resulting Core Web Vitals improvements single-handedly saved the account. Completely seamless partnership.",
-    name: "Priya Sharma",
+    quote: "Their technical SEO knowledge is unmatched. We outsourced a major client's architectural overhaul to them, and the resulting Core Web Vitals improvements single-handedly saved the account.",
+    name: "Rajesh Kumar",
     role: "Head of Strategy, Nexus Creative",
+    rating: 5
+  },
+  {
+    quote: "Working with Edzzy feels completely seamless. They took our Figma designs and built a pixel-perfect, highly animated React frontend. Highly recommended for any agency looking to scale.",
+    name: "Neha Gupta",
+    role: "Design Lead, Studio Nova",
+    rating: 5
+  },
+  {
+    quote: "They developed our client's mobile app natively for iOS and Android. The performance is incredibly smooth and the process was fully transparent. True professionals.",
+    name: "Vikram Singh",
+    role: "Technical Director, Apex Solutions",
+    rating: 5
+  },
+  {
+    quote: "Outsourcing backend development used to be a headache until we found Edzzy. Their scalable database architectures have handled everything we've thrown at them with zero downtime.",
+    name: "Anjali Desai",
+    role: "CEO, InnovateTech",
     rating: 5
   }
 ];
