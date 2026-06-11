@@ -51,22 +51,24 @@ const Navbar = () => {
             </div>
 
             <div className="nav-actions">
-              <motion.button 
-                className="btn-secondary nav-action-btn" 
-                style={{ padding: '8px 20px', fontSize: '0.9rem' }}
+              <motion.a 
+                href="#contact"
+                className="btn-secondary nav-action-btn flex items-center justify-center" 
+                style={{ padding: '8px 20px', fontSize: '0.9rem', textDecoration: 'none' }}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Client Portal
-              </motion.button>
-              <motion.button 
-                className="btn-primary nav-action-btn" 
-                style={{ padding: '8px 20px', fontSize: '0.9rem' }}
+              </motion.a>
+              <motion.a 
+                href="#contact"
+                className="btn-primary nav-action-btn flex items-center justify-center" 
+                style={{ padding: '8px 20px', fontSize: '0.9rem', textDecoration: 'none' }}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Partner With Us
-              </motion.button>
+              </motion.a>
 
               <button 
                 className="mobile-toggle cursor-pointer" 
@@ -107,12 +109,12 @@ const Navbar = () => {
                 ))}
                 
                 <div className="mobile-menu-actions">
-                  <button className="btn-secondary w-full" onClick={() => setMobileMenuOpen(false)}>
+                  <a href="#contact" className="btn-secondary w-full flex items-center justify-center" style={{ textDecoration: 'none', padding: '12px 0' }} onClick={() => setMobileMenuOpen(false)}>
                     Client Portal
-                  </button>
-                  <button className="btn-primary w-full" onClick={() => setMobileMenuOpen(false)}>
+                  </a>
+                  <a href="#contact" className="btn-primary w-full flex items-center justify-center" style={{ textDecoration: 'none', padding: '12px 0' }} onClick={() => setMobileMenuOpen(false)}>
                     Partner With Us
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
