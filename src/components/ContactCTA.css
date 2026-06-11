@@ -1,30 +1,68 @@
 .cta {
   padding-bottom: 120px;
+  position: relative;
 }
 
-.cta-card-light {
+.cta-glow {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(203, 108, 231, 0.08) 0%, transparent 70%);
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cta-card {
   padding: 80px 40px;
   text-align: center;
   max-width: 1000px;
   margin: 0 auto;
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--accent-light) 100%);
   position: relative;
   overflow: hidden;
 }
 
-.cta-content-light {
+/* Internal card grid overlay */
+.cta-grid-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Card central glow highlight */
+.cta-gradient-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(203, 108, 231, 0.08) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-content {
   position: relative;
   z-index: 2;
 }
 
-.cta-card-light::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(var(--accent-primary) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.05;
-  z-index: 1;
+.cta-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.cta-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.62;
 }
 
 .cta-buttons {
@@ -35,12 +73,32 @@
 }
 
 .btn-xl {
-  padding: 18px 40px;
-  font-size: 1.1rem;
+  padding: 16px 36px;
+  font-size: 1.05rem;
+}
+
+.cta-btn-call {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  box-shadow: 0 4px 14px rgba(203, 108, 231, 0.4);
+}
+
+.cta-btn-call:hover {
+  box-shadow: 0 6px 20px rgba(203, 108, 231, 0.6);
 }
 
 @media (max-width: 768px) {
   .cta-buttons {
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .btn-xl {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .cta-card {
+    padding: 60px 24px;
   }
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Smartphone, LayoutTemplate, Palette, Database } from 'lucide-react';
 import './Pricing.css';
@@ -8,49 +7,53 @@ const pricingPlans = [
     title: 'Landing Page',
     price: '₹15,000',
     description: 'High-converting, single-page marketing sites designed to capture leads.',
-    icon: <LayoutTemplate size={28} />,
+    icon: <LayoutTemplate size={24} />,
     features: [
       'Custom UI/UX Design',
       'Mobile Responsive',
       'Free Domain Name (1 yr)',
       'Free Premium Hosting (1 yr)'
-    ]
+    ],
+    popular: false
   },
   {
     title: 'Web Design',
     price: '₹15,000',
     description: 'Beautiful, multi-page company websites optimized for trust and conversions.',
-    icon: <Palette size={28} />,
+    icon: <Palette size={24} />,
     features: [
       'Up to 5 Pages',
       'CMS Integration',
       'Free Domain Name (1 yr)',
       'Free Premium Hosting (1 yr)'
-    ]
+    ],
+    popular: true
   },
   {
     title: 'Backend Dev',
     price: '₹25,000',
     description: 'Robust server-side architecture, APIs, and database design for complex apps.',
-    icon: <Database size={28} />,
+    icon: <Database size={24} />,
     features: [
       'Custom API Development',
       'Database Architecture',
       'Authentication Systems',
       'Scalable Infrastructure'
-    ]
+    ],
+    popular: false
   },
   {
     title: 'Mobile App',
     price: '₹25,000',
     description: 'Native-feel iOS and Android applications built for performance and scale.',
-    icon: <Smartphone size={28} />,
+    icon: <Smartphone size={24} />,
     features: [
       'Cross-Platform Build',
       'App Store Submission',
       'Push Notifications',
       'Smooth Animations'
-    ]
+    ],
+    popular: false
   }
 ];
 
@@ -59,7 +62,7 @@ const Pricing = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 }
+      transition: { staggerChildren: 0.08 }
     }
   };
 
@@ -70,11 +73,14 @@ const Pricing = () => {
 
   return (
     <section className="pricing section-container" id="pricing">
+      <div className="glow-orb pricing-glow"></div>
+      
       <motion.div 
         className="pricing-header text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
       >
         <h2 className="section-title">Transparent Pricing.</h2>
         <p className="section-subtitle">
@@ -92,10 +98,15 @@ const Pricing = () => {
         {pricingPlans.map((plan, index) => (
           <motion.div 
             key={index}
-            className="glass-card pricing-card"
+            className={`glass-card pricing-card ${plan.popular ? 'popular' : ''} group`}
             variants={itemVariants}
-            whileHover={{ y: -6, boxShadow: 'var(--shadow-hover)' }}
           >
+            {plan.popular && (
+              <div className="popular-badge">
+                <span>Best Value</span>
+              </div>
+            )}
+            
             <div className="pricing-card-header">
               <div className="pricing-icon text-blue">
                 {plan.icon}
@@ -105,23 +116,23 @@ const Pricing = () => {
             </div>
             
             <div className="pricing-price-container">
-              <span className="pricing-price">{plan.price}</span>
+              <span className="pricing-price text-gradient-blue">{plan.price}</span>
               <span className="pricing-per">/project</span>
             </div>
 
             <ul className="pricing-features">
               {plan.features.map((feature, i) => (
                 <li key={i}>
-                  <Check size={18} className="text-blue feature-check" strokeWidth={3} />
-                  {feature}
+                  <Check size={16} className="feature-check" strokeWidth={3} />
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
             <motion.a 
               href="#contact"
-              className="btn-primary w-full flex items-center justify-center mt-auto"
-              style={{ padding: '12px 0' }}
+              className={`btn-primary w-full flex items-center justify-center mt-auto pricing-btn ${plan.popular ? 'popular-btn' : ''}`}
+              style={{ padding: '14px 0', textDecoration: 'none' }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

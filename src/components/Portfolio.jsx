@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Smartphone, Globe, Briefcase, GraduationCap, Users, Building2 } from 'lucide-react';
+import { ExternalLink, Smartphone, Globe, Briefcase, GraduationCap, Users, Building2, Lock } from 'lucide-react';
 import './Portfolio.css';
 
 const projects = [
@@ -8,42 +7,42 @@ const projects = [
     title: 'Cardgen AI',
     description: 'AI-powered Business card generator. Instantly create professional digital business cards.',
     link: 'https://cardgen.edzzy.com',
-    icon: <Briefcase size={24} />,
+    icon: <Briefcase size={22} />,
     tags: ['AI', 'SaaS', 'Web']
   },
   {
     title: 'UNILINK',
     description: 'A comprehensive social media application designed specifically for college ecosystems.',
     link: 'https://play.google.com/store/apps/details?id=com.unilinkmediaapp.techapp',
-    icon: <Smartphone size={24} />,
-    tags: ['Mobile App', 'Social Network']
+    icon: <Smartphone size={22} />,
+    tags: ['Mobile App', 'Social']
   },
   {
     title: 'MentorXchange',
     description: 'A dedicated SaaS platform connecting ambitious individuals with industry mentors.',
     link: null, // User specifically requested NOT to link this URL
-    icon: <Users size={24} />,
+    icon: <Users size={22} />,
     tags: ['SaaS', 'Platform']
   },
   {
     title: 'Resell Again',
     description: 'An OLX-style marketplace for college students to buy and sell second-hand goods securely.',
     link: 'https://resell-again.vercel.app',
-    icon: <GraduationCap size={24} />,
+    icon: <GraduationCap size={22} />,
     tags: ['Marketplace', 'Web App']
   },
   {
     title: 'Modern Resume Builder',
     description: 'Free resume builder application featuring modern, ATS-friendly themes and real-time preview.',
     link: 'https://resume-builder-next-client.vercel.app',
-    icon: <Globe size={24} />,
+    icon: <Globe size={22} />,
     tags: ['Web Tool', 'Next.js']
   },
   {
     title: 'KampusOne',
     description: 'A fully-fledged ERP system designed specifically for managing complex school operations.',
     link: 'https://kampusone.com',
-    icon: <Building2 size={24} />,
+    icon: <Building2 size={22} />,
     tags: ['ERP', 'SaaS', 'Web']
   }
 ];
@@ -53,7 +52,7 @@ const Portfolio = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      transition: { staggerChildren: 0.08 }
     }
   };
 
@@ -64,11 +63,14 @@ const Portfolio = () => {
 
   return (
     <section className="portfolio section-container" id="portfolio">
+      <div className="glow-orb portfolio-glow"></div>
+      
       <motion.div 
         className="portfolio-header text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
       >
         <h2 className="section-title">Our Work Speaks.</h2>
         <p className="section-subtitle">
@@ -86,16 +88,18 @@ const Portfolio = () => {
         {projects.map((project, index) => (
           <motion.div 
             key={index}
-            className="glass-card portfolio-card"
+            className="glass-card portfolio-card group"
             variants={itemVariants}
-            whileHover={{ y: -6, boxShadow: 'var(--shadow-hover)' }}
           >
-            <div className="portfolio-icon-wrapper text-blue mb-4">
-              {project.icon}
+            <div className="portfolio-card-header mb-4">
+              <div className="portfolio-icon-wrapper text-blue">
+                {project.icon}
+              </div>
+              <span className="portfolio-card-index">0{index + 1}</span>
             </div>
             
             <h3 className="portfolio-title">{project.title}</h3>
-            <p className="portfolio-desc mb-4">{project.description}</p>
+            <p className="portfolio-desc mb-6">{project.description}</p>
             
             <div className="portfolio-tags mb-6">
               {project.tags.map((tag, i) => (
@@ -103,20 +107,24 @@ const Portfolio = () => {
               ))}
             </div>
 
-            {project.link ? (
-              <a 
-                href={project.link.startsWith('http') ? project.link : `https://${project.link}`} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="portfolio-link flex items-center gap-2"
-              >
-                View Live <ExternalLink size={16} />
-              </a>
-            ) : (
-              <span className="portfolio-link-disabled flex items-center gap-2">
-                Private Project
-              </span>
-            )}
+            <div className="portfolio-footer mt-auto">
+              {project.link ? (
+                <a 
+                  href={project.link.startsWith('http') ? project.link : `https://${project.link}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="portfolio-link flex items-center gap-2 cursor-pointer"
+                >
+                  <span>View Live</span>
+                  <ExternalLink size={15} className="link-arrow" />
+                </a>
+              ) : (
+                <div className="portfolio-link-disabled flex items-center gap-2">
+                  <Lock size={14} />
+                  <span>Private Project</span>
+                </div>
+              )}
+            </div>
           </motion.div>
         ))}
       </motion.div>

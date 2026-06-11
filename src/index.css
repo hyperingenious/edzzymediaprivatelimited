@@ -1,35 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Premium Glassmorphism Color Palette */
-  --bg-primary: #F8FAFC; /* Slate 50 - Ultra clean base */
-  --bg-glass: rgba(255, 255, 255, 0.7); /* Frosted glass */
-  --bg-glass-hover: rgba(255, 255, 255, 0.85);
+  /* Premium Dark Mode & Glassmorphism Palette */
+  --bg-primary: #030712; /* Slate 950 - Absolute rich dark base */
+  --bg-glass: rgba(255, 255, 255, 0.03); /* Frosted dark glass */
+  --bg-glass-hover: rgba(255, 255, 255, 0.06);
   
-  --border-glass: rgba(255, 255, 255, 0.5);
-  --border-subtle: rgba(15, 23, 42, 0.05); /* Very faint dark line */
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
   
-  --text-primary: #0F172A; /* Slate 900 - Intense contrast */
-  --text-secondary: #475569; /* Slate 600 - High legibility muted */
-  --text-muted: #94A3B8;
+  --text-primary: #F8FAFC; /* Slate 50 - High contrast white */
+  --text-secondary: #94A3B8; /* Slate 400 - Clean medium gray */
+  --text-muted: #64748B; /* Slate 500 - Subdued text */
   
-  /* Brand Accents - Vibrant Logo Colors */
-  --accent-primary: #FF65C5; /* Vibrant Pink */
-  --accent-secondary: #CB6CE7; /* Vibrant Purple */
-  --accent-light: #FCE7F3; /* Pink 100 for subtle accents */
+  /* Brand Accents - Vibrant Logo Colors & Tech Blues */
+  --accent-primary: #FF65C5; /* Pink Logo color */
+  --accent-secondary: #CB6CE7; /* Purple Logo color */
+  --accent-blue: #3B82F6; /* Tech Launch Blue */
+  --accent-blue-glow: rgba(59, 130, 246, 0.15);
+  --accent-light: rgba(203, 108, 231, 0.08); /* Faint Purple */
 
   /* Typography */
-  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-main: 'DM Sans', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
 
   /* Premium Transitions (Apple-like easing) */
   --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
   --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* Layered Shadows for Depth */
-  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-  --shadow-glass-hover: 0 12px 48px 0 rgba(31, 38, 135, 0.08);
+  /* Layered Deep Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-glass-hover: 0 12px 48px 0 rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -45,12 +48,12 @@ html {
 body {
   font-family: var(--font-main);
   background-color: var(--bg-primary);
-  /* Abstract subtle mesh gradient background */
+  /* Abstract dark ambient light background */
   background-image: 
-    radial-gradient(at 0% 0%, hsla(202,100%,94%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(210,100%,98%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(202,100%,94%,1) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(210,100%,98%,1) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(203, 108, 231, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 101, 197, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
   background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
@@ -61,16 +64,26 @@ body {
 
 /* Typography Utilities */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
-  letter-spacing: -0.03em; /* Tighter tracking for premium feel */
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 p {
+  font-family: var(--font-main);
   line-height: 1.6;
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--text-primary) 0%, #334155 100%);
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -80,8 +93,8 @@ p {
 /* UI Elements - Glassmorphism Architecture */
 .glass-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-glass);
   border-radius: 24px;
   box-shadow: var(--shadow-glass);
@@ -90,46 +103,65 @@ p {
 
 .glass-card:hover {
   background: var(--bg-glass-hover);
+  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-4px);
   box-shadow: var(--shadow-glass-hover);
 }
 
+/* Premium Buttons */
 .btn-primary {
-  background: var(--text-primary);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%);
   color: white;
   border: none;
   padding: 14px 32px;
   border-radius: 100px;
-  font-family: var(--font-main);
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-primary:hover::after {
+  transform: translateX(100%);
 }
 
 .btn-primary:hover {
-  background: #1e293b;
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--text-primary);
   border: 1px solid var(--border-glass);
   padding: 14px 32px;
   border-radius: 100px;
-  font-family: var(--font-main);
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Base Layout Classes */
@@ -140,10 +172,12 @@ p {
 }
 
 .section-title {
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   color: var(--text-primary);
+  line-height: 1.15;
 }
 
 .section-subtitle {
@@ -152,6 +186,7 @@ p {
   font-size: 1.15rem;
   max-width: 600px;
   margin: 0 auto 64px auto;
+  font-weight: 400;
 }
 
 /* Utilities */
@@ -165,4 +200,14 @@ p {
 .mb-6 { margin-bottom: 24px; }
 .mb-16 { margin-bottom: 64px; }
 .text-center { text-align: center; }
-.text-blue { color: var(--accent-primary); }
+.text-blue { color: var(--accent-blue); }
+.cursor-pointer { cursor: pointer; }
+
+/* Custom Glow Orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
