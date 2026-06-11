@@ -33,20 +33,24 @@ const ContactCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <motion.button 
+            <motion.a 
+              href="tel:+918959262353"
               className="btn-primary btn-xl flex items-center justify-center gap-2"
+              style={{ textDecoration: 'none' }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <PhoneCall size={20} /> Book a Strategy Call
-            </motion.button>
-            <motion.button 
+              <PhoneCall size={20} /> +91 8959 262 353
+            </motion.a>
+            <motion.a 
+              href="#portfolio"
               className="btn-secondary btn-xl flex items-center justify-center gap-2"
+              style={{ textDecoration: 'none' }}
               whileHover={{ scale: 1.05, backgroundColor: 'white' }}
               whileTap={{ scale: 0.95 }}
             >
               View Portfolio <ArrowRight size={20} />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </motion.div>
