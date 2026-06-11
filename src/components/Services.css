@@ -1,0 +1,128 @@
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(250px, auto);
+  gap: 24px;
+}
+
+.bento-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-large {
+  grid-column: span 1;
+  grid-row: span 2;
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--accent-light) 100%);
+}
+
+.bento-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.bento-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.bento-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.bento-content-flex {
+  display: flex;
+  height: 100%;
+  gap: 32px;
+  align-items: center;
+}
+
+.bento-text {
+  flex: 1;
+}
+
+.bento-visual {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mock-ui {
+  width: 100%;
+  max-width: 250px;
+  height: 150px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-header {
+  height: 24px;
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.mock-body {
+  flex: 1;
+  background: white;
+  background-image: linear-gradient(#f1f5f9 2px, transparent 2px);
+  background-size: 100% 20px;
+}
+
+@media (max-width: 968px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-large, .bento-small, .bento-wide {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+  
+  .bento-content-flex {
+    flex-direction: column;
+  }
+  
+  .bento-visual {
+    justify-content: flex-start;
+    margin-top: 24px;
+  }
+}
+
+.bento-icon-wrapper {
+  color: var(--text-primary);
+}
+.service-feature-list {
+  list-style: none;
+  margin-top: 16px;
+  padding: 0;
+}
+.service-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.px-2 { padding-left: 8px; padding-right: 8px; }
+.mock-dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+

@@ -1,0 +1,80 @@
+.pricing-card-light {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.pricing-split-light {
+  display: flex;
+  flex-direction: row;
+}
+
+.pricing-left-light {
+  flex: 1;
+  padding: 48px;
+  background: var(--bg-card);
+}
+
+.pricing-left-light h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.price-tag-light {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.price-tag-light span {
+  color: var(--accent-primary);
+  font-size: 2rem;
+}
+
+.pricing-desc-light {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.pricing-right-light {
+  flex: 1;
+  padding: 48px;
+  background: var(--bg-primary); /* slightly off-white for contrast inside card */
+  border-left: 1px solid var(--border-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pricing-features-light {
+  list-style: none;
+  margin-bottom: auto;
+}
+
+.pricing-features-light li {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .pricing-split-light {
+    flex-direction: column;
+  }
+  .pricing-right-light {
+    border-left: none;
+    border-top: 1px solid var(--border-card);
+  }
+}
